@@ -28,8 +28,7 @@ public class CIDI_Login extends AbstractPage {
     }
 
     public HomePage clickLoginCidi(String user, String pass) {
-//        cuil.type("20-29999008-8");
-//        pass.type("Atila2023!");
+
         setUser(user);
         setPass(pass);
         ingresarData.click();
