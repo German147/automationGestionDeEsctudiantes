@@ -14,4 +14,25 @@ public abstract class DefaultDirectorPageBase extends AbstractPage {
 
     public abstract boolean isTrayectoriasPresent();
 
+    public abstract void clickOnGradoRiesgoButton();
+
+    public abstract void clickOnRiesgoSeccionButton();
+
+    public abstract void clickOnRiesgoOrientacionButton();
+
+    public abstract void clickOnCargaIntervencionesButton();
+
+    public abstract void clickOnIntervencionesButton();
+
+    public abstract boolean isGradoRiesgoDiagramPresent();
+
+    public abstract boolean isRiesgoSeccionDiagramPresent();
+
+    public abstract boolean isRiesgoOrientacionDiagramPresent();
+
+    public abstract boolean isCargaIntervencionesDiagramPresent();
+
+    public abstract boolean isIntervencionesDiagramPresent();
+
+
 }
