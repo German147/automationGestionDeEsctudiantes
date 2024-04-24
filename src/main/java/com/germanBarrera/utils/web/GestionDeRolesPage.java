@@ -1,19 +1,22 @@
-package pages;
+package com.germanBarrera.utils.web;
 
+import com.germanBarrera.utils.common.GestionDeRolesPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class GestionDeRolesPage extends AbstractPage {
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = GestionDeRolesPageBase.class)
+public class GestionDeRolesPage extends GestionDeRolesPageBase {
+
+    @FindBy(css = "[onclick=\"return GuardarIdSeqRolXUsuario('1','899612', 'Director de Servicio Educativo', '-1')\"]")
+    private ExtendedWebElement directorButton;
 
     public GestionDeRolesPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(css = "[onclick=\"return GuardarIdSeqRolXUsuario('1','899612', 'Director de Servicio Educativo', '-1')\"]")
-    private ExtendedWebElement directorButton;
-
+    @Override
     public DefaultDirectorPage clickOnDirectorButton() {
         directorButton.click();
         DefaultDirectorPage drPage = new DefaultDirectorPage(getDriver());
