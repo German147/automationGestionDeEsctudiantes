@@ -1,34 +1,53 @@
 package com.germanBarrera.utils.web;
 
 import com.germanBarrera.utils.common.HomePageBase;
+import com.germanBarrera.utils.web.components.SeguimientoMenu;
+import com.germanBarrera.utils.web.components.TrayectoriasMenu;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.DESKTOP,parentClass = HomePageBase.class)
+import java.util.List;
+
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = HomePageBase.class)
 public class HomePage extends HomePageBase {
 
-    @FindBy(xpath = "//*[text()='Gestión Estudiantes']")
-    private ExtendedWebElement gestionEstudiantesIcon;
+    @FindBy(css = "#btnCambiarRolAceptar")
+    private ExtendedWebElement confirmButton;
 
-    @FindBy(css = ".mat-tooltip-trigger .user-nombre")
-    private ExtendedWebElement username;
+    @FindBy(css = "#aTrayectoriasCuidadas")
+    private ExtendedWebElement trayectoriasElement;
+
+    @FindBy(css = "#MainContent_panelTrayectoriasCuidadas")
+    private TrayectoriasMenu trayectoriasMenu;
+
+    @FindBy(css = "#MainContent_panelAlertas")
+    private SeguimientoMenu seguimientoMenu;
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    public GestionDeRolesPage clickOnGestionDeEstudiantesButton() {
-        gestionEstudiantesIcon.click();
-        return new GestionDeRolesPage(getDriver());
+    public void clickConfirmAlert() {
+        confirmButton.click();
     }
 
     @Override
-    public boolean isUserNamePresent() {
-        return username.isElementPresent();
+    public boolean isTrayectoriasPresent() {
+        return trayectoriasElement.isElementPresent();
+    }
+
+    @Override
+    public TrayectoriasMenu getTrayectoriasMenu() {
+        return trayectoriasMenu;
+    }
+
+    @Override
+    public SeguimientoMenu getSeguimientoMenu() {
+        return seguimientoMenu;
     }
 
 }

@@ -1,8 +1,12 @@
 package com.germanBarrera.utils.common;
 
-import com.germanBarrera.utils.web.GestionDeRolesPage;
+import com.germanBarrera.utils.web.components.SeguimientoMenu;
+import com.germanBarrera.utils.web.components.TrayectoriasMenu;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public abstract class HomePageBase extends AbstractPage {
 
@@ -10,7 +14,12 @@ public abstract class HomePageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract GestionDeRolesPage clickOnGestionDeEstudiantesButton();
+    public abstract TrayectoriasMenu getTrayectoriasMenu();
 
-    public abstract boolean isUserNamePresent();
+    public abstract SeguimientoMenu getSeguimientoMenu();
+
+    public abstract void clickConfirmAlert();
+
+    public abstract boolean isTrayectoriasPresent();
+
 }

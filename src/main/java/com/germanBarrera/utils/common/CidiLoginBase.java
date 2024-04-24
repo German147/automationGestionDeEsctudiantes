@@ -1,6 +1,6 @@
 package com.germanBarrera.utils.common;
 
-import com.germanBarrera.utils.web.HomePage;
+import com.germanBarrera.utils.web.PortalPage;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
@@ -12,7 +12,7 @@ public abstract class CidiLoginBase extends AbstractPage {
 
     public abstract void clickIngresarButton();
 
-    public abstract HomePage clickLoginCidi(String user, String pass);
+    public abstract PortalPage clickLoginCidi(String user, String pass);
 
     public abstract void setUser(String user);
 

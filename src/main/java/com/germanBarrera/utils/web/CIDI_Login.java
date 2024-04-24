@@ -31,11 +31,11 @@ public class CIDI_Login extends CidiLoginBase {
     }
 
     @Override
-    public HomePage clickLoginCidi(String user, String pass) {
+    public PortalPage clickLoginCidi(String user, String pass) {
         setUser(user);
         setPass(pass);
         ingresarData.click();
-        return new HomePage(getDriver());
+        return new PortalPage(getDriver());
     }
 
     @Override
