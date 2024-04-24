@@ -1,15 +1,13 @@
-package pages;
+package com.germanBarrera.utils.web;
 
+import com.germanBarrera.utils.common.CidiLoginBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class CIDI_Login extends AbstractPage {
-
-    public CIDI_Login(WebDriver driver) {
-        super(driver);
-    }
+@DeviceType(pageType = DeviceType.Type.DESKTOP,parentClass = CidiLoginBase.class)
+public class CIDI_Login extends CidiLoginBase {
 
     @FindBy(css = ".ingreso  .mat-button-wrapper")
     private ExtendedWebElement ingresarButton;
@@ -23,22 +21,31 @@ public class CIDI_Login extends AbstractPage {
     @FindBy(css = "[type~=\"password\"]")
     private ExtendedWebElement pass;
 
+    public CIDI_Login(WebDriver driver) {
+        super(driver);
+    }
+
+    @Override
     public void clickIngresarButton() {
         ingresarButton.click();
     }
 
+    @Override
     public HomePage clickLoginCidi(String user, String pass) {
-//        cuil.type("20-29999008-8");
-//        pass.type("Atila2023!");
         setUser(user);
         setPass(pass);
         ingresarData.click();
         return new HomePage(getDriver());
     }
-     public void setUser(String user){
+
+    @Override
+    public void setUser(String user) {
         cuil.type(user);
-     }
-     public void  setPass(String password){
+    }
+
+    @Override
+    public void setPass(String password) {
         pass.type(password);
-     }
+    }
+
 }
