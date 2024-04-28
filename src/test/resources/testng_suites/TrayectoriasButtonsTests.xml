@@ -3,7 +3,13 @@
 <suite verbose="1" name="DirectorPageTrayectorias" parallel="methods" >
     <test thread-count="1" name=" Buttons in Trayectorias">
         <classes>
-            <class name="com.germanBarrera.carina.demo.TrayectoriasButtons"/>
+            <class name="com.germanBarrera.carina.demo.TrayectoriasComponentTest"/>
+        </classes>
+    </test>
+
+    <test thread-count="1" name=" Buttons in Seguimiento">
+        <classes>
+            <class name="com.germanBarrera.carina.demo.SeguimientoDeCargaButtons"/>
         </classes>
     </test>
 <!--    <test thread-count="1" name=" Login Test Name">-->

@@ -17,10 +17,10 @@ public class GestionDeRolesPage extends GestionDeRolesPageBase {
     }
 
     @Override
-    public DefaultDirectorPage clickOnDirectorButton() {
+    public HomePage clickOnDirectorButton() {
         directorButton.click();
-        DefaultDirectorPage drPage = new DefaultDirectorPage(getDriver());
+        HomePage drPage = new HomePage(getDriver());
         drPage.clickConfirmAlert();
-        return new DefaultDirectorPage(getDriver());
+        return new HomePage(getDriver());
     }
 }

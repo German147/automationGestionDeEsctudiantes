@@ -1,6 +1,6 @@
 package com.germanBarrera.utils.common;
 
-import com.germanBarrera.utils.web.DefaultDirectorPage;
+import com.germanBarrera.utils.web.HomePage;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
@@ -10,5 +10,5 @@ public abstract class GestionDeRolesPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract DefaultDirectorPage clickOnDirectorButton();
+    public abstract HomePage clickOnDirectorButton();
 }
