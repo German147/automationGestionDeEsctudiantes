@@ -18,40 +18,40 @@ public class TrayectoriasComponentTest extends LoginTest implements IAbstractTes
 
     @Test(priority = 1)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "gradoRiesgoButtonTest", value = {"web", "functionalTesting"})
-    public void gradoRiesgoButtonTest() {
+    @TestLabel(name = "gradoRiesgoDiagramTest", value = {"web", "functionalTesting"})
+    public void gradoRiesgoDiagramTest() {
         trayectoriasMenu.clickOnGradoRiesgoButton();
         Assert.assertTrue(trayectoriasMenu.isGradoRiesgoDiagramPresent(), "The Grados Riesgo button was not clicked");
     }
 
     @Test(priority = 2)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "riesgoSeccionButtonTest", value = {"web", "functionalTesting"})
-    public void riesgoSeccionButtonTest() {
+    @TestLabel(name = "riesgoSeccionDiagramTest", value = {"web", "functionalTesting"})
+    public void riesgoSeccionDiagramTest() {
         trayectoriasMenu.clickOnRiesgoSeccionButton();
         Assert.assertTrue(trayectoriasMenu.isRiesgoSeccionDiagramPresent(), "The Riesgo Seccion button was not clicked");
     }
 
     @Test(priority = 3)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "riesgoOrientacionButtonTest", value = {"web", "functionalTesting"})
-    public void riesgoOrientacionButtonTest() {
+    @TestLabel(name = "riesgoOrientacionDiagramTest", value = {"web", "functionalTesting"})
+    public void riesgoOrientacionDiagramTest() {
         trayectoriasMenu.clickOnRiesgoOrientacionButton();
         Assert.assertTrue(trayectoriasMenu.isRiesgoOrientacionDiagramPresent(), "The Riesgo Orientacion button was not clicked");
     }
 
     @Test(priority = 4)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "cargaIntervencionesButtonTest", value = {"web", "functionalTesting"})
-    public void cargaIntervencionesButtonTest() {
+    @TestLabel(name = "cargaIntervencionesDiagramTest", value = {"web", "functionalTesting"})
+    public void cargaIntervencionesDiagramTest() {
         trayectoriasMenu.clickOnCargaIntervencionesButton();
         Assert.assertTrue(trayectoriasMenu.isCargaIntervencionesDiagramPresent(), "The Carga Intervenciones button was not clicked");
     }
 
     @Test(priority = 5)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "intervencionesButtonTest", value = {"web", "functionalTesting"})
-    public void intervencionesButtonTest() {
+    @TestLabel(name = "intervencionesDiagramTest", value = {"web", "functionalTesting"})
+    public void intervencionesDiagramTest() {
         trayectoriasMenu.clickOnIntervencionesButton();
         Assert.assertTrue(trayectoriasMenu.isIntervencionesDiagramPresent(), "The Intervenciones button was not clicked");
     }

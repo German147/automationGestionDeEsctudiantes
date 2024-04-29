@@ -16,47 +16,47 @@ public class SeguimientoDeCargaButtons implements IAbstractTest, ILogin {
 
     @Test(priority = 1)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "cambioDeCicloBtnTest", value = {"web", "functionalTesting"})
-    public void cambioDeCicloBtnTest() {
+    @TestLabel(name = "cambioDeCicloDiagramTest", value = {"web", "functionalTesting"})
+    public void cambioDeCicloDiagramTest() {
         seguimientoMenu.clickOnCambioDeCicloBtn();
         Assert.assertTrue(seguimientoMenu.isCambioCicloDiagramPresent(), "The button Cambio de ciclo was not clicked");
     }
 
     @Test(priority = 2)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "iPE_E1_BtnTest", value = {"web", "functionalTesting"})
-    public void iPE_E1_BtnTest() {
+    @TestLabel(name = "iPE_E1_DiagramTest", value = {"web", "functionalTesting"})
+    public void iPE_E1_DiagramTest() {
         seguimientoMenu.clickOnIPE_E1_Btn();
         Assert.assertTrue(seguimientoMenu.is_IPE_E1_DiagramPresent(), "The button IPE_E1 was not clicked");
     }
 
     @Test(priority = 3)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "iPE_E2_BtnTest", value = {"web", "functionalTesting"})
-    public void iPE_E2_BtnTest() {
+    @TestLabel(name = "iPE_E2_DiagramTest", value = {"web", "functionalTesting"})
+    public void iPE_E2_DiagramTest() {
         seguimientoMenu.clickOnIPE_E2_Btn();
         Assert.assertTrue(seguimientoMenu.is_IPE_E2_DiagramPresent(), "The button IPE_E2 was not clicked");
     }
 
     @Test(priority = 4)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "pasesBtnTest", value = {"web", "functionalTesting"})
-    public void pasesBtnTest() {
+    @TestLabel(name = "pasesDiagramTest", value = {"web", "functionalTesting"})
+    public void pasesDiagramTest() {
         seguimientoMenu.clickOnPasesBtn();
         Assert.assertTrue(seguimientoMenu.isPasesDiagramPresent(), "The button Pases was not clicked");
     }
 
     @Test(priority = 5)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "asistenciaDiariaBtn", value = {"web", "functionalTesting"})
-    public void asistenciaDiariaBtn() {
+    @TestLabel(name = "asistenciaDiariaDiagramTest", value = {"web", "functionalTesting"})
+    public void asistenciaDiariaDiagramTest() {
         seguimientoMenu.clickOnInastenciaDiariaBtn();
         Assert.assertTrue(seguimientoMenu.isInasistensiasDiagramPresent(), "The button Astencia Diaria was not clicked");
     }
     @Test(priority = 6)
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "vinculoFamiliarBtn", value = {"web", "functionalTesting"})
-    public void vinculoFamiliarBtn() {
+    @TestLabel(name = "vinculoFamiliarDiagramTest", value = {"web", "functionalTesting"})
+    public void vinculoFamiliarDiagramTest() {
         seguimientoMenu.clickOnVinculoFamiliarBtn();
         Assert.assertTrue(seguimientoMenu.isVinculoFamiliarDiagramPresent(), "The button Vinculo Familiar was not clicked");
     }
