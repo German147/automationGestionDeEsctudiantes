@@ -10,7 +10,7 @@ import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SeguimientoDeCargaButtons extends LoginTest implements IAbstractTest, ILogin {
+public class SeguimientoDeCargaDiagrams  implements IAbstractTest, ILogin {
 
     HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
     SeguimientoMenu seguimientoMenu = homePage.getSeguimientoMenu();

@@ -3,7 +3,7 @@
 <suite verbose="1" name="DirectorPageTrayectorias" parallel="methods" >
     <test thread-count="1" name=" Diagrams in Seguimiento">
         <classes>
-            <class name="com.germanBarrera.carina.demo.SeguimientoDeCargaButtons"/>
+            <class name="com.germanBarrera.carina.demo.SeguimientoDeCargaDiagrams"/>
         </classes>
     </test>
 </suite>
