@@ -3,13 +3,13 @@
 <suite verbose="1" name="DirectorPageDiagramsTest" parallel="methods" >
     <test thread-count="1" name=" Diagrams in Trayectorias">
         <classes>
-            <class name="com.germanBarrera.carina.demo.TrayectoriasComponentTest"/>
+            <class name="com.germanBarrera.carina.demo.TrayectoriasDiagramsTests"/>
         </classes>
     </test>
 
     <test thread-count="1" name=" Diagrams in Seguimiento">
         <classes>
-            <class name="com.germanBarrera.carina.demo.SeguimientoDeCargaDiagrams"/>
+            <class name="com.germanBarrera.carina.demo.SeguimientoDiagramsTests"/>
         </classes>
     </test>
 

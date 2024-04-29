@@ -11,7 +11,7 @@ import org.testng.Assert;
 
 import org.testng.annotations.Test;
 
-public class TrayectoriasComponentTest extends LoginTest implements IAbstractTest, ILogin {
+public class TrayectoriasDiagramsTests extends LoginTest implements IAbstractTest, ILogin {
 
     HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
     TrayectoriasMenu trayectoriasMenu = homePage.getTrayectoriasMenu();

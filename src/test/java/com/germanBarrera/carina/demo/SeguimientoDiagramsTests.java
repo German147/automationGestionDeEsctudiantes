@@ -1,6 +1,5 @@
 package com.germanBarrera.carina.demo;
 
-import com.germanBarrera.carina.demo.base.LoginTest;
 import com.germanBarrera.utils.common.HomePageBase;
 import com.germanBarrera.utils.functionalities.ILogin;
 import com.germanBarrera.utils.web.components.SeguimientoMenu;
@@ -10,7 +9,7 @@ import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SeguimientoDeCargaDiagrams  implements IAbstractTest, ILogin {
+public class SeguimientoDiagramsTests implements IAbstractTest, ILogin {
 
     HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
     SeguimientoMenu seguimientoMenu = homePage.getSeguimientoMenu();
