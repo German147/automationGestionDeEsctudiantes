@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class SeguimientoDiagramsTests implements IAbstractTest, ILogin {
 
-    HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+    HomePageBase homePage = initPage(getDriver(),HomePageBase.class);
     SeguimientoMenu seguimientoMenu = homePage.getSeguimientoMenu();
 
     @Test(priority = 1)

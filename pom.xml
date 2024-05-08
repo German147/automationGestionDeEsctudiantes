@@ -17,9 +17,8 @@
         <carina-dataprovider.version>1.0.0</carina-dataprovider.version>
         <carina-api.version>1.0.0</carina-api.version>
         <carina-aws-s3.version>1.0.1</carina-aws-s3.version>
-        <java.version>11</java.version>
+        <java.version>21</java.version>
         <zebrunner-agent.version>1.9.3</zebrunner-agent.version>
-        <suite>helloWorld</suite>
     </properties>
 
     <repositories>
@@ -125,6 +124,13 @@
             <artifactId>spring-web-test-client</artifactId>
             <version>5.4.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>4.20.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -1,8 +1,8 @@
 package com.germanBarrera.utils.functionalities;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.germanBarrera.utils.web.CIDI_Login;
-import com.germanBarrera.utils.web.PortalPage;
+import com.germanBarrera.utils.web.pages.CIDI_Login;
+import com.germanBarrera.utils.web.pages.PortalPage;
 
 public interface ILogin extends IAbstractTest {
 

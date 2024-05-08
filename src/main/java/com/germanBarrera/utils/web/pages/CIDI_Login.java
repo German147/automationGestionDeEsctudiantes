@@ -1,4 +1,4 @@
-package com.germanBarrera.utils.web;
+package com.germanBarrera.utils.web.pages;
 
 import com.germanBarrera.utils.common.CidiLoginBase;
 import com.zebrunner.carina.utils.factory.DeviceType;

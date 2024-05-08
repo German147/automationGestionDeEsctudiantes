@@ -1,6 +1,6 @@
 package com.germanBarrera.utils.common;
 
-import com.germanBarrera.utils.web.PortalPage;
+import com.germanBarrera.utils.web.pages.PortalPage;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
