@@ -10,8 +10,13 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.utils.R;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class LoginTest implements IAbstractTest, ILogin {
 
@@ -32,6 +37,7 @@ public class LoginTest implements IAbstractTest, ILogin {
         PortalPageBase portalPage = initPage(getDriver(), PortalPageBase.class);
         HomePageBase homePage;
         GestionDeRolesPage roles = portalPage.clickOnGestionDeEstudiantesButton();
+        getDriver().manage().timeouts().getPageLoadTimeout();
         WindowsManagerBase tab = initPage(getDriver(), WindowsManagerBase.class);
         tab.switchTabs();
         homePage = roles.clickOnDirectorButton();

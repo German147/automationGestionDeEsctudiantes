@@ -6,6 +6,9 @@ import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public class SideBarMenu extends AbstractUIObject {
@@ -47,6 +50,8 @@ public class SideBarMenu extends AbstractUIObject {
     private ExtendedWebElement tutorialesBtn;
 
     public EstudiantesDropdownOptions clickEstudiantesDropdownBtn() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(d -> estudiantesBtn.isElementPresent());
         estudiantesBtn.click();
         return new EstudiantesDropdownOptions(getDriver());
     }
