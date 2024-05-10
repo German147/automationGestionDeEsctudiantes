@@ -9,7 +9,7 @@ import java.util.Set;
 @DeviceType(pageType = DeviceType.Type.DESKTOP,parentClass = WindowsManagerBase.class)
 public class WindowsManager extends WindowsManagerBase {
 
-    WebDriver.Navigation navigate = getDriver().navigate();
+    final WebDriver.Navigation navigate = getDriver().navigate();
 
     public WindowsManager(WebDriver driver) {
         super(driver);

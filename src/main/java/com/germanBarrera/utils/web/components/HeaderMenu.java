@@ -12,7 +12,7 @@ public class HeaderMenu extends AbstractUIObject {
         super(driver, searchContext);
     }
 
-    @FindBy(css = ".sidebar-toggle")
+    @FindBy(css = ".navbar [role=\"button\"]")
     private ExtendedWebElement burgerBtn;
 
     public void clickBurgerBtn(){
