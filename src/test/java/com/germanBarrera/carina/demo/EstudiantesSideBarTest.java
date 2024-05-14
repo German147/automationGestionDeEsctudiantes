@@ -86,5 +86,35 @@ public class EstudiantesSideBarTest extends LoginTest implements IAbstractTest {
         Assert.assertTrue(optativas.getPageTitle().contains(title), "The page was not opened");
     }
 
+    @Test(priority = 6)
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "actualizarDatosPersonalesPageTest", value = {"web", "functionalTesting"})
+    public void actualizarDatosPersonalesPageTest() {
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        SideBarMenu sideBar = homePage.getSidebarMenu();
+        HeaderMenu header = homePage.getHeader();
+        header.clickBurgerBtn();
+        EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
+        options.scrollDown();
+        ActualizarDatosPage actualizarDatos = options.actualizarDatosPersonalesClick();
+        String title = actualizarDatos.getPageTitle();
+
+        Assert.assertTrue(actualizarDatos.getPageTitle().contains(title), "The page was not opened");
+    }
+
+    @Test(priority = 7)
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "gestionarLegajoDigitalPageTest", value = {"web", "functionalTesting"})
+    public void gestionarLegajoDigitalPageTest() {
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        SideBarMenu sideBar = homePage.getSidebarMenu();
+        EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
+        options.scrollDown();
+        GestionarLegajosPage gestionarLegajosPage = options.gestionarLegajoClick();
+        String pageTitle = gestionarLegajosPage.getPageTitle();
+
+        Assert.assertTrue(gestionarLegajosPage.getPageTitle().contains(pageTitle),"The page was not opened");
+    }
+
 
 }
