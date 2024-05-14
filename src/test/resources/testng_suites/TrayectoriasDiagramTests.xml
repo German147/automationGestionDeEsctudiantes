@@ -6,12 +6,5 @@
             <class name="com.germanBarrera.carina.demo.TrayectoriasDiagramsTests"/>
         </classes>
     </test>
-
-    <test thread-count="1" name=" Diagrams in Seguimiento">
-        <classes>
-            <class name="com.germanBarrera.carina.demo.SeguimientoDiagramsTests"/>
-        </classes>
-    </test>
-
 </suite>
 
