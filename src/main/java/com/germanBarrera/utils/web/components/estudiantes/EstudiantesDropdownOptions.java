@@ -49,7 +49,7 @@ public class EstudiantesDropdownOptions extends AbstractPage {
     public void scrollDown() {
         String scripts = "scroll(0,400);";
         ((JavascriptExecutor) getDriver()).executeScript(scripts);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(d -> asignarOptativas.isElementPresent());
     }
 
@@ -78,5 +78,13 @@ public class EstudiantesDropdownOptions extends AbstractPage {
         return new AsignarOptativasPage(getDriver());
     }
 
+    public ActualizarDatosPage actualizarDatosPersonalesClick() {
+        actualizarDatos.click();
+        return new ActualizarDatosPage(getDriver());
+    }
 
+    public GestionarLegajosPage gestionarLegajoClick() {
+        gestionarLegajo.click();
+        return new GestionarLegajosPage(getDriver());
+    }
 }
