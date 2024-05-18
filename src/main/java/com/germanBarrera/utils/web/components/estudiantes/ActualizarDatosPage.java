@@ -17,4 +17,5 @@ public class ActualizarDatosPage extends AbstractPage {
     public String getPageTitle(){
         return pageTitle.getText();
     }
+
 }

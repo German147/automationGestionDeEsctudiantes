@@ -26,7 +26,7 @@ public class EstudiantesSideBarTest extends LoginTest implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         SideBarMenu sideBar = homePage.getSidebarMenu();
         EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
-        options.scrollDown();
+        options.scrollDownHomePage();
         FichaDelEstudiantePage ficha = options.fichaEstudianteClick();
         Assert.assertTrue(ficha.isFichaPageOpened(), "The page was not opened");
     }
@@ -38,7 +38,7 @@ public class EstudiantesSideBarTest extends LoginTest implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         SideBarMenu sideBar = homePage.getSidebarMenu();
         EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
-        options.scrollDown();
+        options.scrollDownHomePage();
         AsignarPreviasyEquivalenciasPage previas = options.asignarPreviaClick();
         Assert.assertTrue(previas.isTextPresent(), "The page was not opened");
     }
@@ -50,7 +50,7 @@ public class EstudiantesSideBarTest extends LoginTest implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         SideBarMenu sideBar = homePage.getSidebarMenu();
         EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
-        options.scrollDown();
+        options.scrollDownHomePage();
         ActualizarPadronPage padronPage = options.actualizarPadronClick();
         String title = padronPage.getTitlePage();
 
@@ -64,7 +64,7 @@ public class EstudiantesSideBarTest extends LoginTest implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         SideBarMenu sideBar = homePage.getSidebarMenu();
         EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
-        options.scrollDown();
+        options.scrollDownHomePage();
         AprobarPorEximicionPage eximicionPage = options.aprobarPorEximicionClick();
         String pageTitle = eximicionPage.getPageTitleAprobarPorEximicion();
         Assert.assertTrue(eximicionPage.getPageTitleAprobarPorEximicion().contains(pageTitle), "The Eximicion page was not opened");
@@ -79,7 +79,7 @@ public class EstudiantesSideBarTest extends LoginTest implements IAbstractTest {
         HeaderMenu header = homePage.getHeader();
         header.clickBurgerBtn();
         EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
-        options.scrollDown();
+        options.scrollDownHomePage();
         AsignarOptativasPage optativas = options.asignarOptativasClick();
         String title = optativas.getPageTitle();
 
@@ -95,7 +95,7 @@ public class EstudiantesSideBarTest extends LoginTest implements IAbstractTest {
         HeaderMenu header = homePage.getHeader();
         header.clickBurgerBtn();
         EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
-        options.scrollDown();
+        options.scrollDownHomePage();
         ActualizarDatosPage actualizarDatos = options.actualizarDatosPersonalesClick();
         String title = actualizarDatos.getPageTitle();
 
@@ -109,7 +109,7 @@ public class EstudiantesSideBarTest extends LoginTest implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         SideBarMenu sideBar = homePage.getSidebarMenu();
         EstudiantesDropdownOptions options = sideBar.clickEstudiantesDropdownBtn();
-        options.scrollDown();
+        options.scrollDownHomePage();
         GestionarLegajosPage gestionarLegajosPage = options.gestionarLegajoClick();
         String pageTitle = gestionarLegajosPage.getPageTitle();
 

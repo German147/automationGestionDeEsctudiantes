@@ -46,7 +46,7 @@ public class EstudiantesDropdownOptions extends AbstractPage {
         super(driver);
     }
 
-    public void scrollDown() {
+    public void scrollDownHomePage() {
         String scripts = "scroll(0,400);";
         ((JavascriptExecutor) getDriver()).executeScript(scripts);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));

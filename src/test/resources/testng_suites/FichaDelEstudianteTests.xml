@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Ficha Del Estudiante Tests Inside" parallel="methods">
+
+    <test name="FichaDelEstudianteTests">
+        <classes>
+            <class name="com.germanBarrera.carina.demo.FichaDelEstudianteTests" />
+        </classes>
+    </test>
+
+</suite>
