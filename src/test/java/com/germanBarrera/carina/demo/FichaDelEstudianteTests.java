@@ -46,6 +46,7 @@ public class FichaDelEstudianteTests extends FichaDelEstudianteBaseTest implemen
 
         softAssert.assertTrue(fichaDelEstudiantePage.descriptionGetTest().contains(modalTitle), "The modal panel was not opened");
         fichaDelEstudiantePage.closeModal();
+        softAssert.assertAll();
     }
 
     @Test(priority = 3)
@@ -56,7 +57,8 @@ public class FichaDelEstudianteTests extends FichaDelEstudianteBaseTest implemen
         fichaDelEstudiantePage.selectOptionFromCicloLectivo("2022");
         String years = fichaDelEstudiantePage.getSelectedOption();
         LOGGER.info("The year selected is " + years);
-        softAssert.assertTrue(fichaDelEstudiantePage.getSelectedOption().contains("2012"), "Incorrect option selected in anio");
+        softAssert.assertTrue(fichaDelEstudiantePage.getSelectedOption().contains("2022"),"Wrong year selected");
+        softAssert.assertAll();
     }
 
     @Test(priority = 4)
@@ -69,7 +71,8 @@ public class FichaDelEstudianteTests extends FichaDelEstudianteBaseTest implemen
         fichaDelEstudiantePage.selectCurso(3);
         String selectedCurso = fichaDelEstudiantePage.getSelectedCursoText();
         LOGGER.info("This is the inner text from index 3: " + selectedCurso);
-        softAssert.assertTrue(fichaDelEstudiantePage.getSelectedCursoText().contains("SEGUNDO AÑO \"A\" tarde (687197747)"), "Incorrect option selected in cursos");
+        softAssert.assertTrue(fichaDelEstudiantePage.getSelectedCursoText().contains("SEGUNDO AÑO \"A\" MAÑANA (687197747)"), "Incorrect option selected in cursos");
+        softAssert.assertAll();
     }
 
     @Test(priority = 5)
@@ -81,6 +84,7 @@ public class FichaDelEstudianteTests extends FichaDelEstudianteBaseTest implemen
         String dniNumber = fichaDelEstudiantePage.getDnitext();
 
         softAssert.assertTrue(fichaDelEstudiantePage.getDnitext().contains(dniNumber), "The DNI is incorrect");
+        softAssert.assertAll();
     }
 
     @Test(priority = 6)
@@ -92,6 +96,7 @@ public class FichaDelEstudianteTests extends FichaDelEstudianteBaseTest implemen
         String surname = fichaDelEstudiantePage.getStudentSurname();
 
         softAssert.assertTrue(fichaDelEstudiantePage.getStudentSurname().contains(surname), "Selected Student is incorrect");
+        softAssert.assertAll();
     }
 
 

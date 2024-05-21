@@ -8,7 +8,7 @@ import com.zebrunner.carina.api.http.HttpMethodType;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.Configuration;
 
-@Endpoint(url = "${base_url}${id}/lists", methodType = HttpMethodType.GET)
+@Endpoint(url = "${base_url}${id}", methodType = HttpMethodType.GET)
 @ResponseTemplatePath(path = "api/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class GetCardById extends AbstractApiMethodV2 {

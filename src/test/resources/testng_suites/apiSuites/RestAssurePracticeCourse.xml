@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="EstudiantesSidebarTests" parallel="methods">
+
+
+    <test name="RestAssurePractice">
+        <classes>
+            <class name="com.germanBarrera.carina.demo.api.RestAssurePracticeCourse" />
+        </classes>
+    </test>
+
+</suite>
