@@ -24,7 +24,6 @@ public class ApiTrelloTest implements IAbstractTest {
     public void getCardById(){
         GetCardById getCardById = new GetCardById();
         getCardById.setProperties("api/user.properties");
-        getCardById.addParameter("id",getCardById.getProperties().getProperty("card_id"));
         getCardById.addParameter("key",getCardById.getProperties().getProperty("key"));
         getCardById.addParameter("token",getCardById.getProperties().getProperty("token"));
         getCardById.callAPIExpectSuccess();
