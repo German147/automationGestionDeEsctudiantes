@@ -1,7 +1,6 @@
 package com.germanBarrera.carina.demo;
 
 import com.germanBarrera.carina.demo.base.FichaDelEstudianteBaseTest;
-import com.germanBarrera.carina.demo.base.LoginTest;
 import com.germanBarrera.utils.common.HomePageBase;
 import com.germanBarrera.utils.web.components.SideBarMenu;
 import com.germanBarrera.utils.web.components.estudiantes.EstudiantesDropdownOptions;
@@ -12,12 +11,10 @@ import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.lang.invoke.MethodHandles;
-import java.util.List;
 
 public class FichaDelEstudianteTests extends FichaDelEstudianteBaseTest implements IAbstractTest {
 
@@ -42,9 +39,9 @@ public class FichaDelEstudianteTests extends FichaDelEstudianteBaseTest implemen
     public void breveDescriptionTest() {
         FichaDelEstudiantePage fichaDelEstudiantePage = new FichaDelEstudiantePage(getDriver());
         fichaDelEstudiantePage.openDescription();
-        String modalTitle = fichaDelEstudiantePage.descriptionGetTest();
+        String modalTitle = fichaDelEstudiantePage.descriptionGetText();
 
-        softAssert.assertTrue(fichaDelEstudiantePage.descriptionGetTest().contains(modalTitle), "The modal panel was not opened");
+        softAssert.assertTrue(fichaDelEstudiantePage.descriptionGetText().contains(modalTitle), "The modal panel was not opened");
         fichaDelEstudiantePage.closeModal();
         softAssert.assertAll();
     }
