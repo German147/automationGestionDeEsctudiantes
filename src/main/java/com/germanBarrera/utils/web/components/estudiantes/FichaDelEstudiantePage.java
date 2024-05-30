@@ -11,9 +11,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class FichaDelEstudiantePage extends AbstractPage {
     @FindBy(css = "#MainContent_lblTitulo")
@@ -61,7 +58,7 @@ public class FichaDelEstudiantePage extends AbstractPage {
         breveDescriptionBtn.click();
     }
 
-    public String descriptionGetTest() {
+    public String descriptionGetText() {
         return modalTitle.getText();
     }
 
