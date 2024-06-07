@@ -5,7 +5,10 @@ import com.germanBarrera.utils.common.HomePageBase;
 import com.germanBarrera.utils.web.components.SideBarMenu;
 import com.germanBarrera.utils.web.components.estudiantes.AsignarPreviasyEquivalenciasPage;
 import com.germanBarrera.utils.web.components.estudiantes.EstudiantesDropdownOptions;
+import com.germanBarrera.utils.web.components.estudiantes.enums.AsignarPreviasDropdowns;
+import com.germanBarrera.utils.web.components.estudiantes.enums.CourseEnum;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -13,6 +16,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.lang.invoke.MethodHandles;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AsignarPrevias_EquivalenciasTest extends FichaDelEstudianteBaseTest implements IAbstractTest {
 
@@ -35,10 +40,10 @@ public class AsignarPrevias_EquivalenciasTest extends FichaDelEstudianteBaseTest
     public void selectCursoTest() {
         AsignarPreviasyEquivalenciasPage asignarPrevias = new AsignarPreviasyEquivalenciasPage(getDriver());
         asignarPrevias.scrollDownAsignarPrevias();
-        asignarPrevias.clickOnCurso();
+        asignarPrevias.clickOnCursoInscriptos();
         asignarPrevias.selectCurso(5);
-        String selectedCursoName = asignarPrevias.getSelectedCursoText();
-        Assert.assertTrue(asignarPrevias.getSelectedCursoText().contains(selectedCursoName), "The course was not selected");
+        String selectedCursoName = asignarPrevias.getSelectedInscriptosCursoText();
+        Assert.assertTrue(asignarPrevias.getSelectedInscriptosCursoText().contains(selectedCursoName), "The course was not selected");
         LOGGER.info("The selected curso is " + selectedCursoName);
     }
 
@@ -50,22 +55,37 @@ public class AsignarPrevias_EquivalenciasTest extends FichaDelEstudianteBaseTest
         Assert.assertTrue(asignarPrevias.isInscriptosElementPresent());
     }
 
+
     @Test(priority = 4)
     public void seleccionarCursoTest() {
         AsignarPreviasyEquivalenciasPage asignarPrevias = new AsignarPreviasyEquivalenciasPage(getDriver());
+        asignarPrevias.clickConsultarButton();
         asignarPrevias.clickOnSeleccionarbutton();
-        asignarPrevias.clickOnCursoPadd();
-        asignarPrevias.selectOptionFromCurso(3);
-        String selectedCourse = asignarPrevias.getSelectedOption();
+        asignarPrevias.clickOnDropdown(AsignarPreviasDropdowns.CURSO);
+        asignarPrevias.selectCursoPadd(CourseEnum.SEGUNDO_AÑO.getCurso());
+        String selectedCourse = asignarPrevias.getSelectedDropDownOption(AsignarPreviasDropdowns.CURSO);
         LOGGER.info("This is the course selected " + selectedCourse);
 
-        Assert.assertTrue(asignarPrevias.getSelectedOption().contains(selectedCourse), "The course was not selected");
+        Assert.assertTrue(asignarPrevias.getSelectedDropDownOption(AsignarPreviasDropdowns.CURSO).contains(selectedCourse), "The course was not selected");
     }
+
+
+//    @Test(priority = 4)
+//    public void seleccionarCursoTest() {
+//        AsignarPreviasyEquivalenciasPage asignarPrevias = new AsignarPreviasyEquivalenciasPage(getDriver());
+//        asignarPrevias.clickOnSeleccionarbutton();
+//        asignarPrevias.clickOnCursoPadd();
+//        asignarPrevias.selectOptionFromCurso(3);
+//        String selectedCourse = asignarPrevias.getSelectedCursoOption();
+//        LOGGER.info("This is the course selected " + selectedCourse);
+//
+//        Assert.assertTrue(asignarPrevias.getSelectedCursoOption().contains(selectedCourse), "The course was not selected");
+//    }
 
     @Test(priority = 4)
     public void seleccionarPlanDeEstudioTest() {
         AsignarPreviasyEquivalenciasPage asignarPrevias = new AsignarPreviasyEquivalenciasPage(getDriver());
-        asignarPrevias.clickOnPlanDeEstudio();
+        asignarPrevias.clickOnDropdown(AsignarPreviasDropdowns.PLAN_DE_ESTUDIO);
         asignarPrevias.selectPlanDeEstudios(1);
         String planDeEstudiosSelected = asignarPrevias.getSelectedPlanDeEstuios();
         LOGGER.info("This is the plan de estudios selected " + planDeEstudiosSelected);
@@ -76,42 +96,48 @@ public class AsignarPrevias_EquivalenciasTest extends FichaDelEstudianteBaseTest
     @Test(priority = 5)
     public void seleccionarEspacioCurricularTest() {
         AsignarPreviasyEquivalenciasPage asignarPrevias = new AsignarPreviasyEquivalenciasPage(getDriver());
-        asignarPrevias.clickOnEspacioCurricular();
+        asignarPrevias.clickOnDropdown(AsignarPreviasDropdowns.ESPACIO_CURRICULAR);
         asignarPrevias.selectEspacioCurricular("BIOLOGÍA");
         String espacioCurricular = asignarPrevias.getSelectedEspacioCurricular();
         LOGGER.info("Espacio curricular es " + espacioCurricular);
 
-        Assert.assertTrue(asignarPrevias.getSelectedEspacioCurricular().contains(espacioCurricular),"The espacio curricular was not selected");
+        Assert.assertTrue(asignarPrevias.getSelectedEspacioCurricular().contains(espacioCurricular), "The espacio curricular was not selected");
     }
 
     @Test(priority = 6)
-    public void adeudaPorEquivalencia_PreviaTest(){
+    public void adeudaPorEquivalencia_PreviaTest() {
         AsignarPreviasyEquivalenciasPage asignarPrevias = new AsignarPreviasyEquivalenciasPage(getDriver());
-        asignarPrevias.clickOnAdeudaPorDropdown();
+        asignarPrevias.clickOnDropdown(AsignarPreviasDropdowns.ADEUDA_POR);
         asignarPrevias.selectAdeudaPorDropdown("EQUIVALENCIA");
         String adeudaPor = asignarPrevias.getSelectedAdeudaPor();
         LOGGER.info("La condicion de espacio curricular adeudado es " + adeudaPor);
 
-        Assert.assertTrue(asignarPrevias.getSelectedAdeudaPor().contains(adeudaPor),"The subject condicion is incorrect");
+        Assert.assertTrue(asignarPrevias.getSelectedAdeudaPor().contains(adeudaPor), "The subject condicion is incorrect");
     }
 
     @Test(priority = 7)
-    public void tercerMateriaDropdownTest(){
+    public void tercerMateriaDropdownTest() {
         AsignarPreviasyEquivalenciasPage asignarPrevias = new AsignarPreviasyEquivalenciasPage(getDriver());
-        asignarPrevias.clickOnTercerMateriaDropdown();
+        asignarPrevias.clickOnDropdown(AsignarPreviasDropdowns.TERCER_MATERIA);
         asignarPrevias.selectTercerMateria("NO");
         String siOno = asignarPrevias.getTercerMateriaSelected();
         LOGGER.info("Es tercer materia : " + siOno);
 
-        Assert.assertTrue(asignarPrevias.getTercerMateriaSelected().contains(siOno),"The 'condicion' was not selected");
+        Assert.assertTrue(asignarPrevias.getTercerMateriaSelected().contains(siOno), "The 'condicion' was not selected");
     }
 
     @Test(priority = 8)
-    public void agregarPreviaTest(){
+    public void agregarPreviaTest() {
         AsignarPreviasyEquivalenciasPage asignarPrevias = new AsignarPreviasyEquivalenciasPage(getDriver());
-        asignarPrevias.clickOnAgregarMateria();
+        asignarPrevias.clickOnDropdown(AsignarPreviasDropdowns.TERCER_MATERIA);
+        List<WebElement> list = asignarPrevias.getMateriasList();
+        List<String> materias = new ArrayList<>();
+        for (WebElement data : list) {
+            materias.add(data.getText());
+        }
+        LOGGER.info("This is the info " + materias.toString());
 
-        Assert.assertTrue(asignarPrevias.isAsignaturaAdded(),"The subject was not added");
+        Assert.assertTrue(asignarPrevias.searchMateriaInList(materias, "BIOLOGÍA"), "The subject was not added");
     }
 
 }
