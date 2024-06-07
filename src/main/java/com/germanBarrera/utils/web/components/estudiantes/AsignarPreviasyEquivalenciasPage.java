@@ -1,5 +1,6 @@
 package com.germanBarrera.utils.web.components.estudiantes;
 
+import com.germanBarrera.utils.web.components.estudiantes.enums.AsignarPreviasDropdowns;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.By;
@@ -61,6 +62,9 @@ public class AsignarPreviasyEquivalenciasPage extends AbstractPage {
     @FindBy(css = "#rptListado_lblNasignatura_0")
     private ExtendedWebElement asignaturaBiologia;
 
+    @FindBy(xpath = "//*[@id=\"tblPrevias\"]/tbody/tr")
+    private ExtendedWebElement materiasList;
+
 
     public AsignarPreviasyEquivalenciasPage(WebDriver driver) {
         super(driver);
@@ -74,25 +78,6 @@ public class AsignarPreviasyEquivalenciasPage extends AbstractPage {
         return pageTitle.getText();
     }
 
-    public void clickOnCurso() {
-        WebElement element = getDriver().findElement(cursos.getBy());
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().perform();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-    }
-
-    private Select findCurso() {
-        return new Select(getDriver().findElement(cursos.getBy()));
-    }
-
-    public void selectCurso(int index) {
-        findCurso().selectByIndex(index);
-    }
-
-    public String getSelectedCursoText() {
-        WebElement selectedElement = findCurso().getFirstSelectedOption();
-        return selectedElement.getText();
-    }
 
     public void scrollDownAsignarPrevias() {
         String scripts = "scroll(0,400);";
@@ -117,136 +102,221 @@ public class AsignarPreviasyEquivalenciasPage extends AbstractPage {
         String scripts = "scroll(0,400);";
         ((JavascriptExecutor) getDriver()).executeScript(scripts);
     }
+    //Inscriptos select Curso
 
-    public void clickOnCursoPadd() {
-        switchToPadd();
-        WebElement element = getDriver().findElement(cursoOptions.getBy());
+    public void clickOnCursoInscriptos() {
+        WebElement element = getDriver().findElement(cursos.getBy());
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().perform();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
-    private Select findDropDownCurso() {
-        return new Select(getDriver().findElement(cursoOptions.getBy()));
+    public void selectCurso(int index) {
+        findCursoInscriptos().selectByIndex(index);
     }
 
-    public void selectOptionFromCurso(int option) {
-        findDropDownCurso().selectByIndex(option);
+    private Select findCursoInscriptos() {
+        return new Select(getDriver().findElement(cursos.getBy()));
     }
 
-    public String getSelectedOption() {
-        WebElement element = findDropDownCurso().getFirstSelectedOption();
-        String selectedElement = element.getText();
-        return selectedElement;
+    public String getSelectedInscriptosCursoText() {
+        WebElement selectedElement = findCursoInscriptos().getFirstSelectedOption();
+        return selectedElement.getText();
     }
+
+    //generics inner methods for Student Selected padd
+
+    public void clickOnDropdown(AsignarPreviasDropdowns asignarPreviasDropdowns) {
+        switchToPadd();
+        WebElement element = getDriver().findElement(By.cssSelector(asignarPreviasDropdowns.getCssLocator()));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().perform();
+        switchToParentFrame();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+    }
+
+    private Select findDropDownOptions(AsignarPreviasDropdowns asignarPreviasDropdowns) {
+        switch (asignarPreviasDropdowns) {
+            case CURSO -> {
+                return new Select(getDriver().findElement(By.cssSelector(AsignarPreviasDropdowns.CURSO.getCssLocator())));
+            }
+            case PLAN_DE_ESTUDIO -> {
+                return new Select(getDriver().findElement(By.cssSelector(AsignarPreviasDropdowns.PLAN_DE_ESTUDIO.getCssLocator())));
+            }
+            case ESPACIO_CURRICULAR -> {
+                return new Select(getDriver().findElement(By.cssSelector(AsignarPreviasDropdowns.ESPACIO_CURRICULAR.getCssLocator())));
+            }
+            case ADEUDA_POR -> {
+                return new Select(getDriver().findElement(By.cssSelector(AsignarPreviasDropdowns.ADEUDA_POR.getCssLocator())));
+            }
+            case TERCER_MATERIA -> {
+                return new Select(getDriver().findElement(By.cssSelector(AsignarPreviasDropdowns.TERCER_MATERIA.getCssLocator())));
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + asignarPreviasDropdowns);
+        }
+    }
+
 
     private void switchToPadd() {
         getDriver().switchTo().frame(0);
     }
 
-    public boolean isEspaciosCurricularesOpened() {
+    private void switchToParentFrame() {
+        getDriver().switchTo().parentFrame();
+    }
+
+    //cursos
+
+//    private Select findDropDownCurso() {
+//        return new Select(getDriver().findElement(cursoOptions.getBy()));
+//
+//    }
+
+    public void selectCursoPadd(String curso) {
         switchToPadd();
-        WebElement element = getDriver().findElement(cursoOptions.getBy());
-        return element.isDisplayed();
+        findDropDownOptions(AsignarPreviasDropdowns.CURSO).selectByVisibleText(curso);
+        switchToParentFrame();
+    }
+
+//    public String getSelectedCursoOption() {
+//        switchToPadd();
+//        WebElement element = findDropDownOptions(AsignarPreviasDropdowns.CURSO).getFirstSelectedOption();
+//        String selectedElement = element.getText();
+//        switchToParentFrame();
+//        return selectedElement;
+//    }
+
+    public String getSelectedDropDownOption(AsignarPreviasDropdowns asignarPreviasDropdowns) {
+        WebElement element;
+        switch (asignarPreviasDropdowns) {
+            case CURSO -> {
+
+                element = findDropDownOptions(AsignarPreviasDropdowns.CURSO).getFirstSelectedOption();
+                return element.getText();
+            }
+            case PLAN_DE_ESTUDIO -> {
+                element = findDropDownOptions(AsignarPreviasDropdowns.PLAN_DE_ESTUDIO).getFirstSelectedOption();
+                return element.getText();
+            }
+            case ESPACIO_CURRICULAR -> {
+                element = findDropDownOptions(AsignarPreviasDropdowns.ESPACIO_CURRICULAR).getFirstSelectedOption();
+                return element.getText();
+            }
+            case ADEUDA_POR -> {
+                element = findDropDownOptions(AsignarPreviasDropdowns.ADEUDA_POR).getFirstSelectedOption();
+                return element.getText();
+            }
+            case TERCER_MATERIA -> {
+                element = findDropDownOptions(AsignarPreviasDropdowns.TERCER_MATERIA).getFirstSelectedOption();
+                return element.getText();
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + asignarPreviasDropdowns);
+        }
     }
 
     //Plan de estuios
-    public void clickOnPlanDeEstudio() {
-        WebElement element = getDriver().findElement(planDeEstudios.getBy());
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().perform();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-    }
 
     private Select findDropDownPlanDeEstudios() {
         return new Select(getDriver().findElement(planDeEstudios.getBy()));
     }
 
     public void selectPlanDeEstudios(int option) {
+        switchToPadd();
         findDropDownPlanDeEstudios().selectByIndex(option);
+        switchToParentFrame();
     }
 
     public String getSelectedPlanDeEstuios() {
+        switchToPadd();
         WebElement element = findDropDownPlanDeEstudios().getFirstSelectedOption();
         String selectedElement = element.getText();
+        switchToParentFrame();
         return selectedElement;
     }
 
     //Espacio Curricular
-    public void clickOnEspacioCurricular() {
-        WebElement element = getDriver().findElement(espacioCurricular.getBy());
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().perform();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-    }
 
     private Select findDropDownEspacioCurriculares() {
         return new Select(getDriver().findElement(espacioCurricular.getBy()));
     }
 
     public void selectEspacioCurricular(String subject) {
+        switchToPadd();
         findDropDownEspacioCurriculares().selectByVisibleText(subject);
+        switchToParentFrame();
     }
 
     public String getSelectedEspacioCurricular() {
+        switchToPadd();
         WebElement element = findDropDownEspacioCurriculares().getFirstSelectedOption();
         String selectedElement = element.getText();
+        switchToParentFrame();
         return selectedElement;
     }
 
     //Adeuda por
-    public void clickOnAdeudaPorDropdown() {
-        WebElement element = getDriver().findElement(adeudaPor.getBy());
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().perform();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-    }
 
     private Select findDropDownAdeudaPor() {
         return new Select(getDriver().findElement(adeudaPor.getBy()));
     }
 
     public void selectAdeudaPorDropdown(String condicion) {
+        switchToPadd();
         findDropDownAdeudaPor().selectByVisibleText(condicion);
+        switchToParentFrame();
     }
 
     public String getSelectedAdeudaPor() {
+        switchToPadd();
         WebElement element = findDropDownAdeudaPor().getFirstSelectedOption();
         String selectedElement = element.getText();
+        switchToParentFrame();
         return selectedElement;
     }
 
     // Tercer Materia
-
-    public void clickOnTercerMateriaDropdown() {
-        WebElement element = getDriver().findElement(tercerMateriaDropdown.getBy());
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().perform();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-    }
 
     private Select findDropDownTercerMateria() {
         return new Select(getDriver().findElement(tercerMateriaDropdown.getBy()));
     }
 
     public void selectTercerMateria(String yes_no) {
+        switchToPadd();
         findDropDownTercerMateria().selectByVisibleText(yes_no);
+        switchToParentFrame();
     }
 
     public String getTercerMateriaSelected() {
+        switchToPadd();
         WebElement element = findDropDownTercerMateria().getFirstSelectedOption();
         String selectedElement = element.getText();
+        switchToParentFrame();
         return selectedElement;
     }
+//****************************************************
 
-    public void clickOnAgregarMateria() {
+    public void clickOnAgregarMateriaBtn() {
         agregarbutton.click();
     }
-    public boolean isAsignaturaAdded(){
+
+    public boolean isAsignaturaAdded() {
         return asignaturaBiologia.isElementPresent();
     }
-//    public List<WebElement> getAsignaturasList() {
-//        List<WebElement> asignaturasLists = getDriver().findElements(prices.getBy());
-//        return asignaturasLists;
-//    }
+
+    public List<WebElement> getMateriasList() {
+        switchToPadd();
+        List<WebElement> asignaturasLists = getDriver().findElements(materiasList.getBy());
+        return asignaturasLists;
+    }
+
+    public boolean searchMateriaInList(List<String> stringList, String word) {
+        // Iterate through the list
+        for (String str : stringList) {
+            // Check if the specific word is present in the current string
+            if (str.contains(word)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

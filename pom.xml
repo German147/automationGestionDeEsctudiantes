@@ -179,7 +179,7 @@
                     <argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     					<suiteXmlFiles>
-                    						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/GestionDeEstudiantesDiagramsTest.xml</suiteXmlFile>
+                    						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/AsignarPrevias_EquivalenciasTest.xml</suiteXmlFile>
                     					</suiteXmlFiles>
                 </configuration>
             </plugin>
